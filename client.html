@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>URL Shortener</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		
+    </head>
+    <body>
+        <main>            
+        	<h1>Enter a url to shorten:</h1>				
+			<form action="/URLs" method="POST">				
+   				 <input type="text" class="url-input" name="site" placeholder="Write a link here"/>
+   			 	 <input type="text" class="url-input" id="short" name="short" placeholder="Write the short link key word"/>
+				 <button id="shorten-button">Shorten!</button>
+			</form>
+			<pre id="out">Your URL will appear here...</pre>					
+        </main>        
+		<script>	
+		$('button').on('click', function(e) {
+			e.preventDefault();	
+			var short_value = document.getElementById('short').value;	
+			 document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'">http://localhost:3012/r/'+short_value+'</a>';	
+	
+		  $.ajax({
+			type: 'POST',
+			url: 'http://localhost:3012/URLs',
+			data: $('form').serialize() ,
+			success: function(resultData) {
+				alert(resultData);
+			 }
+		  });
+		});				
+		</script>
+    </body>
+</html>
