@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <title>URL Shortener</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="main.css">		
+		<link href="button.css" rel="stylesheet" type="text/css"/>		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-		
     </head>
     <body>
         <main>            
@@ -14,12 +14,12 @@
 			<form action="/URLs" method="POST">				
    				 <input type="text" class="url-input" name="site" placeholder="Write a link here"/>
    			 	 <input type="text" class="url-input" id="short" name="short" placeholder="Write the short link key word"/>
-				 <button id="shorten-button">Shorten!</button>
+				 <a id="shorten-button" class="button pink serif round glass">Shorten!</a>				
 			</form>
 			<pre id="out">Your URL will appear here...</pre>					
         </main>        
 		<script>	
-		$('button').on('click', function(e) {
+		$('a').on('click', function(e) {
 			e.preventDefault();	
 			var short_value = document.getElementById('short').value;	
 			 document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'">http://localhost:3012/r/'+short_value+'</a>';	

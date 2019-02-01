@@ -1,0 +1,105 @@
+/* cyrillic */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(1.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(2.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(3.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url(4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------- THE button -------------- */
+.button {
+/* text */
+	text-decoration: 		none;
+	font: 					1.77vw 'Droid Sans', sans-serif;
+/* layout */
+	padding: 				0.9vw 3.6vw 0.7vw 3.6vw;
+	display: 				inline-block;
+	position: 				relative;	
+/* effects */	
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(noise.png);  
+}
+/* -------------- icon -------------- */
+.button:before {
+	font: 			1.2em/0 'Pictos', sans-serif;
+	content: 		attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+	margin-right: 	0.4em;
+}
+/* -------------- colours -------------- */
+.button.pink {
+	color: 				hsl(340, 100%, 30%);
+	background-color: 	hsl(0, 100%, 30%);
+	box-shadow:
+    inset rgba(255,254,255,0.6) 0 0.3em .3em, 
+    inset rgba(0,0,0,0.15) 0 -0.1em .3em,
+		hsl(0, 100%, 30%) 0 .1em 3px, 
+    hsl(0, 90%, 20%) 0 .3em 1px,
+		rgba(0,0,0,0.2) 0 .5em 5px;
+}
+.button.pink:hover { 	background-color: hsl(120, 71%, 69%); }
+/* -------------- States -------------- */
+.button:active {
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
+  box-shadow: 		inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+ rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  transform: 			translateY(.2em);
+}
+/* -------------- Fonts -------------- */
+.serif { 
+	font-family: 'Lobster', serif;
+	font-weight: 			normal;
+}
+/* -------------- Materials -------------- */
+.button.glossy:after, .button.glass:after {
+	content: 	"";
+	position: 	absolute; 
+    width: 		90%;
+    height: 	60%;
+    top: 		0;
+    left: 		5%; 
+  
+    background-image: 		-webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+    							color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );	
+    
+}
+/* -------------- Shapes -------------- */
+/* round */
+.round, .round.glossy:after, .round.glass:after { 
+	border-radius: 	1em; 
+}
