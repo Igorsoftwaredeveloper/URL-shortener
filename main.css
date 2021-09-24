@@ -1,7 +1,9 @@
 body {
-	overflow: hidden;
+    overflow: hidden;
     background-image: url("background.jpg");
-	background-color: #382E2E;
+    background-color: #382E2E;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 form {
 	text-align: center;
