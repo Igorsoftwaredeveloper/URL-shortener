@@ -49,14 +49,15 @@ main {
 
 #out {
     font-size: 150%;
+    color: cornflowerblue;
 }
 
 #out a {
-    color: white;
+    color: cornflowerblue;
 }
 
 a {
-    color: #d34;
+    color: #dd3344;
 }
 
 #link {

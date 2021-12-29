@@ -22,7 +22,7 @@
 		$('a').on('click', function(e) {
 			e.preventDefault();	
 			var short_value = document.getElementById('short').value;	
-			 document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'">http://localhost:3012/r/'+short_value+'</a>';	
+			 document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'" target="_blank">http://localhost:3012/r/'+short_value+'</a>';
 	
 		  $.ajax({
 			type: 'POST',
