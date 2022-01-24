@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <title>URL Shortener</title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="main.css">		
-		<link href="button.css" rel="stylesheet" type="text/css"/>		
+        <link rel="stylesheet" href="main.css" type="text/css">
+		<link rel="stylesheet" href="button.css" type="text/css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     </head>
     <body>
@@ -13,26 +13,44 @@
         	<h1>Enter a url to shorten:</h1>				
 			<form action="/URLs" method="POST">				
    				 <input type="text" class="url-input" name="site" placeholder="Write a link here"/>
-   			 	 <input type="text" class="url-input" id="short" name="short" placeholder="Write the short link key word"/>
-				 <a id="shorten-button" class="button pink serif round glass">Shorten!</a>				
+   			 	 <input type="text" class="url-input" id="short" name="short" placeholder="Write the short link keyword"/>
+				 <a id="shorten-button" class="button pink serif round glass">Shorten!</a>
 			</form>
-			<pre id="out">Your URL will appear here...</pre>					
-        </main>        
-		<script>	
-		$('a').on('click', function(e) {
-			e.preventDefault();	
-			var short_value = document.getElementById('short').value;	
-			 document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'" target="_blank">http://localhost:3012/r/'+short_value+'</a>';
-	
-		  $.ajax({
-			type: 'POST',
-			url: 'http://localhost:3012/URLs',
-			data: $('form').serialize() ,
-			success: function(resultData) {
-				alert(resultData);
-			 }
-		  });
-		});				
+			<p id="out">Your URL will appear here...</p>
+        </main>
+		<script>
+			document.querySelector('a').addEventListener('click', function(e) {
+			e.preventDefault();
+			let short_value = document.getElementById('short').value;
+			document.getElementById('out').innerHTML = '<a href="http://localhost:3012/r/'+short_value+'" target="_blank">http://localhost:3012/r/'+short_value+'</a>';
+
+			function serialize (data) {
+				let obj = {};
+				for (let [key, value] of data) {
+					if (obj[key] !== undefined) {
+						if (!Array.isArray(obj[key])) {
+							obj[key] = [obj[key]];
+						}
+						obj[key].push(value);
+					} else {
+						obj[key] = value;
+					}
+				}
+				return obj;
+			}
+
+			let form = document.querySelector('form');
+			let data = new FormData(form);
+			let formValue = JSON.stringify(serialize(data));
+
+			fetch('http://localhost:3012/URLs',{
+				method: 'POST',
+				body: formValue,
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		});
 		</script>
     </body>
 </html>

@@ -3,7 +3,7 @@ body {
     background-image: url("background.jpg");
     background-color: #382E2E;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100vw 100vh;
 }
 form {
 	text-align: center;
@@ -16,13 +16,11 @@ main {
     align-items: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
     margin: 5em;
 }
 
 .url-input {
     font: inherit;
-    font-size: 3rem;
     font-family: monospace;
     font-weight: bold;
     padding: 0.3em;
@@ -30,6 +28,7 @@ main {
     background-color: rgba(255, 255, 255, 0.5);
     border: 0;
     outline: 0;
+    font-size: 4vh;
 }
 
 .url-input:focus {
@@ -41,14 +40,14 @@ main {
     padding: 1rem 2rem;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
+    font-size: 3vh;
     border: 0;
     margin: 3rem;
     cursor: pointer;
 }
 
 #out {
-    font-size: 150%;
+    font-size: 3vh;
     color: cornflowerblue;
 }
 
@@ -62,4 +61,13 @@ a {
 
 #link {
 	color: white;
+}
+
+h1 {
+    font-size: 4vh;
+}
+
+::placeholder {
+    font-size: 1.5vh;
+    color: black;
 }
